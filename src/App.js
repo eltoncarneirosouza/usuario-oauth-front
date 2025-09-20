@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./auth/AuthProvider";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
+import Cliente from "./pages/Cliente";
 
 function PrivateRoute({ children }) {
   const { auth } = useAuth();
@@ -20,6 +21,14 @@ function App() {
             element={
               <PrivateRoute>
                 <Home />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/cliente/novo"
+            element={
+              <PrivateRoute>
+                <Cliente />
               </PrivateRoute>
             }
           />

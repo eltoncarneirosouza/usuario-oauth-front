@@ -17,8 +17,8 @@ const Login = () => {
     setError("");
     try {
       const response = await api.post("/auth/login", {
-        email: "elton@gmail.com",
-        password: "123456"
+        email,
+        password
       });
       
       const { accessToken } = response.data;
