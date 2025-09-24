@@ -59,10 +59,8 @@ function Cliente() {
 
     try {
       if (formData.id) {
-        // Se tem ID, é uma atualização
         await api.put(`/clients/${formData.id}`, formData);
       } else {
-        // Se não tem ID, é um novo cadastro
         await api.post("/clients", formData);
       }
       
@@ -74,7 +72,7 @@ function Cliente() {
         cpf: "",
         cep: ""
       });
-      await loadClientes(); // Recarrega a lista após cadastrar/atualizar
+      await loadClientes(); 
     } catch (err) {
       setError(err.response?.data?.message || "Erro ao cadastrar/atualizar cliente");
     } finally {
@@ -205,9 +203,9 @@ function Cliente() {
                         email: cliente.email,
                         cpf: cliente.cpf,
                         cep: cliente.cep,
-                        password: "" // Não preenchemos a senha no formulário de edição
+                        password: ""
                       });
-                      window.scrollTo(0, 0); // Rola para o topo para mostrar o formulário
+                      window.scrollTo(0, 0);
                     }}
                   >
                     Editar

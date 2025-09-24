@@ -28,16 +28,9 @@ function Home() {
                 <NavDropdown.Item as={Link} to="/cliente/novo">Cadastrar Novo</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/clientes">Listar Todos</NavDropdown.Item>
               </NavDropdown>
-              <NavDropdown title="Usuário" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#profile">Meu Perfil</NavDropdown.Item>
-                <NavDropdown.Item href="#settings">
-                  Configurações
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item onClick={handleLogout}>
+              <NavDropdown.Item onClick={handleLogout}>
                   Sair
                 </NavDropdown.Item>
-              </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>
