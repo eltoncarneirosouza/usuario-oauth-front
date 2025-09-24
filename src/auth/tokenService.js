@@ -14,5 +14,23 @@ export function clearTokens() {
 }
 
 export function isAuthenticated() {
-  return !!getAccessToken();
+  const token = getAccessToken();
+  if (!token) return false;
+
+  try {
+    // Verifica se o token é um JWT válido
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const expiry = payload.exp * 1000; // Converte para milissegundos
+    
+    // Verifica se o token não está expirado
+    if (Date.now() >= expiry) {
+      clearTokens();
+      return false;
+    }
+    
+    return true;
+  } catch (error) {
+    clearTokens();
+    return false;
+  }
 }

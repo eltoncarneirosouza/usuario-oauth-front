@@ -33,7 +33,7 @@ function Cliente() {
     if (window.confirm("Tem certeza que deseja excluir este cliente?")) {
       try {
         await api.delete(`/clients/${id}`);
-        await loadClientes(); // Recarrega a lista após deletar
+        await loadClientes();
         setSuccess(true);
         setTimeout(() => setSuccess(false), 3000);
       } catch (err) {
