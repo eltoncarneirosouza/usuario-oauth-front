@@ -59,7 +59,12 @@ function Cliente() {
 
     try {
       if (formData.id) {
-        await api.put(`/clients/${formData.id}`, formData);
+        const dadosParaAtualizar = {
+          name: formData.name,
+          email: formData.email,
+          password: formData.password || undefined
+        };
+        await api.put(`/clients/${formData.id}`, dadosParaAtualizar);
       } else {
         await api.post("/clients", formData);
       }

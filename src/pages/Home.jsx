@@ -28,9 +28,17 @@ function Home() {
                 <NavDropdown.Item as={Link} to="/cliente/novo">Cadastrar Novo</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/clientes">Listar Todos</NavDropdown.Item>
               </NavDropdown>
-              <NavDropdown.Item onClick={handleLogout}>
+            </Nav>
+            <Nav>
+              <NavDropdown title="Minha Conta" id="user-nav-dropdown" align="end">
+                <NavDropdown.Item as={Link} to="/perfil">Meu Perfil</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/configuracoes">Configurações</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item onClick={handleLogout} className="text-danger">
+                  <i className="bi bi-box-arrow-right me-2"></i>
                   Sair
                 </NavDropdown.Item>
+              </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>
